@@ -1,6 +1,8 @@
 package geon.follow_app.activity;
 
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +14,7 @@ import geon.follow_app.adapter.MainPageAdapter;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
     @BindView(R.id.tvPageName)
     TextView tvPageName;
     @BindView(R.id.tlLayout)
@@ -44,12 +46,14 @@ public class MainActivity extends AppCompatActivity {
 
         mainPageAdapter = new MainPageAdapter(getSupportFragmentManager());
         vpPager.setAdapter(mainPageAdapter);
+        vpPager.setOffscreenPageLimit(5);
         vpPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tlLayout));
         tlLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 vpPager.setCurrentItem(tab.getPosition());
                 tvPageName.setText(tabNames.get(tab.getPosition()));
+                mainPageAdapter.getFragment(tab.getPosition()).onResume();
             }
 
             @Override
@@ -62,5 +66,23 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        Fragment fragment = mainPageAdapter.getFragment(position);
+        if(fragment != null) {
+            fragment.onResume();
+        }
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
     }
 }

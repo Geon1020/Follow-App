@@ -16,15 +16,16 @@ public class StoryFragment extends Fragment {
 
 
     public StoryFragment() {
-        // Required empty public constructor
+
     }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_story, container, false);
+        View view = inflater.inflate(R.layout.fragment_story, container, false);
+
+        return view;
     }
 
 }

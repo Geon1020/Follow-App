@@ -8,51 +8,63 @@
         android:orientation="vertical"
         tools:context="geon.follow_app.activity.MainActivity">
 
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:orientation="vertical"
-            android:background="@color/c_ffdc37"
-            android:gravity="center_vertical">
-
-        <TextView
-                android:id="@+id/tvPageName"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="홈"
-                android:textSize="15dp"
-                android:textColor="@color/c_1e0d00"
-                android:gravity="center"
-                android:layout_marginLeft="15dp"/>
-
-        <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
-    </LinearLayout>
-
     <android.support.design.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <android.support.design.widget.TabLayout
-                android:id="@+id/tlLayout"
+        <android.support.design.widget.AppBarLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                app:tabGravity="fill"
-                app:tabSelectedTextColor="@color/c_1e0d00"
-                app:tabTextColor="@color/c_c2c2c2"
-                app:tabIndicatorHeight="2dp"
-                app:tabIndicatorColor="@color/c_1e0d00"
-                app:tabMode="fixed">
+                android:layout_height="wrap_content">
 
-        </android.support.design.widget.TabLayout>
+            <android.support.design.widget.CollapsingToolbarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:layout_scrollFlags="scroll|enterAlways">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="vertical"
+                        android:background="@color/c_ffdc37"
+                        android:gravity="center_vertical">
+
+                    <TextView
+                            android:id="@+id/tvPageName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="홈"
+                            android:textSize="15dp"
+                            android:textColor="@color/c_1e0d00"
+                            android:gravity="center"
+                            android:layout_marginLeft="15dp"/>
+
+                    <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+                </LinearLayout>
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+            <android.support.design.widget.TabLayout
+                    android:id="@+id/tlLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/c_ffffff"
+                    app:tabGravity="fill"
+                    app:tabSelectedTextColor="@color/c_1e0d00"
+                    app:tabTextColor="@color/c_e1e1e1"
+                    app:tabIndicatorHeight="2dp"
+                    app:tabIndicatorColor="@color/c_1e0d00"
+                    app:tabMode="fixed">
+
+            </android.support.design.widget.TabLayout>
+        </android.support.design.widget.AppBarLayout>
 
         <android.support.v4.view.ViewPager
                 android:id="@+id/vpPager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="50dp">
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         </android.support.v4.view.ViewPager>
     </android.support.design.widget.CoordinatorLayout>

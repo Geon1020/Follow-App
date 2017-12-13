@@ -6,7 +6,9 @@
     
     <color name="c_ffdc37">#ffdc37</color>
     <color name="c_1e0d00">#1e0d00</color>
-    <color name="c_c2c2c2">#c2c2c2</color>
+    <color name="c_e1e1e1">#e1e1e1</color>
     <color name="c_ffffff">#ffffff</color>
     <color name="c_000000">#000000</color>
+    <color name="c_acacac">#acacac</color>
+    <color name="c_c2c2c2">#c2c2c2</color>
 </resources>
